@@ -24,7 +24,7 @@ if (n == 0 || n == 1) {
         /*
         Approach 3: Tabulation
 Explanation: The tabulation solution eliminates recursion and uses a bottom-up approach to solve the problem iteratively. It creates a DP table (dp) of size n+1 to store the number of ways to reach each step. The base cases (0 and 1 steps) are initialized to 1 since there is only one way to reach them. Then, it iterates from 2 to n, filling in the DP table by summing up the values for the previous two steps. Finally, it returns the value in the last cell of the DP table, which represents the total number of ways to reach the top.
-        */
+        
         if (n == 0 || n == 1) {
             return 1;
         }
@@ -36,6 +36,22 @@ Explanation: The tabulation solution eliminates recursion and uses a bottom-up a
             dp[i] = dp[i-1] + dp[i-2];
         }
         return dp[n];
+        */
+
+        /*
+        Approach 4: Space Optimization
+Explanation: The space-optimized solution further reduces the space complexity by using only two variables (prev and curr) instead of an entire DP table. It initializes prev and curr to 1 since there is only one way to reach the base cases (0 and 1 steps). Then, in each iteration, it updates prev and curr by shifting their values. curr becomes the sum of the previous two values, and prev stores the previous value of curr.
+*/
+    if (n == 0 || n == 1) {
+            return 1;
+        }
+        int prev = 1, curr = 1;
+        for (int i = 2; i <= n; i++) {
+            int temp = curr;
+            curr = prev + curr;
+            prev = temp;
+        }
+        return curr;
     }
     private int climbStairs(int n, Map<Integer, Integer> memo){
         if(n == 0 || n == 1)    
