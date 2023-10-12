@@ -15,7 +15,6 @@
  */
 class Solution {
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        TreeNode temp = root;
         if( root == null)
             return false;
         targetSum -= root.val;
