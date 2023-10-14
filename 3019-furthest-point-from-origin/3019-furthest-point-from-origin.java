@@ -1,16 +1,11 @@
 class Solution {
     public int furthestDistanceFromOrigin(String moves) {
-        int count = 0;
-        int missingCount = 0;
-        char[] arr = moves.toCharArray();
-        for(char c : arr){
-            if(c == 'L')
-                count--;
-            else if(c == 'R')
-                count++;
-            else
-                missingCount++;
+        int Ls = 0, Rs = 0, Bs = 0;
+        for(char c: moves.toCharArray()){
+            if(c == 'L')    Ls++;
+            else if(c == 'R')    Rs++;
+            else    Bs++;
         }
-        return Math.abs(count) + missingCount;
+        return Math.abs(Ls-Rs)+Bs;
     }
 }
