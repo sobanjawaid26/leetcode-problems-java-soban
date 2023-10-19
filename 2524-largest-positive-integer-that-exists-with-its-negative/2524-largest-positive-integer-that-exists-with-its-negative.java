@@ -6,9 +6,8 @@ class Solution {
         }
         int max = -1;
         for(Integer n : set){
-            if(set.contains(-n) && Math.abs(n) > max){
+            if((set.contains(-n)) && Math.abs(n) > max)
                 max = Math.abs(n);
-            }
         }
         return max;
     }
