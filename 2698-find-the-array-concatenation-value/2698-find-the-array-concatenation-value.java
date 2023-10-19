@@ -8,7 +8,6 @@ class Solution {
             String s2 = Integer.toString(nums[nums.length - 1]); 
             String s = s1 + s2;  
             int c = Integer.parseInt(s); 
-            //String s = nums[0] + nums[nums.length];
             concatVal = c;
             res = res + concatVal;
             nums = removeFirstLast(nums);
